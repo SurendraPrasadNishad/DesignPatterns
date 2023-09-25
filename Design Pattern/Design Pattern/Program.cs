@@ -6,12 +6,25 @@ using System.Threading.Tasks;
 
 namespace Design_Pattern
 {
-     class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            SingletonPattern emp=SingletonPattern.getIntance;
+            //in multi thread environment
+            Parallel.Invoke(
+                ()=> EmployeePrintMethod(),
+                () => StudentPrintMethod() 
+            );
+            
+        }
+
+        private static void EmployeePrintMethod()
+        {
+            SingletonPattern emp = SingletonPattern.getIntance;
             emp.PrintDetails("From Employess");
+        }
+        private static void StudentPrintMethod()
+        {
             SingletonPattern std = SingletonPattern.getIntance;
             std.PrintDetails("From Students");
         }
