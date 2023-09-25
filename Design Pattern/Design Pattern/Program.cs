@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace Design_Pattern
 {
-    internal class Program
+     class Program
     {
         static void Main(string[] args)
         {
+            SingletonPattern emp=SingletonPattern.getIntance;
+            emp.PrintDetails("From Employess");
+            SingletonPattern std = SingletonPattern.getIntance;
+            std.PrintDetails("From Students");
         }
     }
 }
